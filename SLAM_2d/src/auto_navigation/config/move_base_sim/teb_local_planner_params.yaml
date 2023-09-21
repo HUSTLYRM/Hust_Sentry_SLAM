@@ -1,0 +1,253 @@
+TebLocalPlannerROS:
+
+ odom_topic: /odom
+
+ map_frame: map #odom_combined
+
+ #Trajectory
+
+ teb_autosize: True #优化期间允许改变轨迹的时域长度
+
+ dt_ref: 0.45 #局部路径规划的解析度--相邻点时间间隔# minimum 0.01
+
+ dt_hysteresis: 0.1 #允许改变的时域解析度的浮动范围， 一般为 dt_ref 的 10% 左右minimum0.002
+
+ global_plan_overwrite_orientation: True  #覆盖全局路径中局部路径点的朝向 
+
+ max_global_plan_lookahead_dist: 0.5 #考虑优化的全局计划子集的最大长度--向前规划最长距离
+
+ feasibility_check_no_poses: 5 #检测位姿可到达的时间间隔 minimum 0
+
+ # Robot
+
+ max_vel_x: 0.2 #最大x前向速度 0.5
+
+ max_vel_y: 0.0 #最大y前向速度，非全向移动小车需要设置为0 0.3
+
+ max_vel_x_backwards: 0.06 #最大后退速度 设置为0或者负数将导致错误 且不小于 penalty_epsilon
+
+ max_vel_theta: 0.3  #最大转向角速度
+
+ acc_lim_x: 0.2  #最大x向加速度
+
+ acc_lim_y: 0  #最大y向加速度，非全向移动小车需要设置为0
+
+ acc_lim_theta: 0.3  #最大角加速度
+
+ min_turning_radius: 0.0   #for mini_diff #阿克曼小车参数，非阿克曼小车设置为0
+
+ #min_turning_radius: 0.426 #for mini_akm    # Min turning radius of the carlike robot (compute value using a model or adjust with rqt_reconfigure manually)
+
+ #min_turning_radius: 0.773 #for senior_akm
+
+ #min_turning_radius: 0.871 #for top_akm_bs
+
+ #min_turning_radius: 1.318 #for top_akm_dl
+
+ wheelbase: 0.0   #for not_akm
+
+ #wheelbase: 0.143 #for mini_akm
+
+ #wheelbase: 0.320 #for senior_akm
+
+ #wheelbase: 0.503 #for top_akm_bs
+
+ #wheelbase: 0.549 #for top_akm_dl
+
+ cmd_angle_instead_rotvel: False #无论是不是阿克曼小车都设置为false，因为阿克曼小车启用了阿克曼速度转换包
+
+                                 #true则cmd_vel/angular/z内的数据是舵机角度
+
+ footprint_model: # types: "point", "circular", "two_circles", "line", "polygon" 默认“point”类型
+
+  # type: "polygon"   #多边形类型for akm/mec，默认”point”。
+
+  type: "circular" #多边形类型for omni
+
+  #line_start: [0.00, 0.0] # for type "line" senior_akm
+
+  #line_end: [0.7, 0.0] # for type "line" top_akm_bs
+
+  #radius: 0.3 # for type "circular"
+
+  #front_offset: 0.2       #for type "two_circles"
+
+  #front_rasius: 0.2       #for type "two_circles"
+
+  #rear_offset : 0.2       #for type "two_circles"
+
+  #rear_rasius : 0.2       #for type "two_circles"
+
+  #阿克曼系列
+
+  #vertices: [[-0.031, -0.093], [-0.031, 0.093],[0.209,0.093],[0.209, -0.093]] #机器人形状 for mini_akm
+
+  #vertices: [[-0.09, -0.185], [-0.09, 0.185], [0.4,0.185],  [0.4, -0.185]]   #机器人形状 for senior_akm
+
+  #vertices: [[-0.13, -0.27],  [-0.13, 0.27],  [0.7,0.27],   [0.7, -0.27]]    #机器人形状 for top_akm_bs backAxleCenter
+
+  #vertices: [[-0.15, -0.38],  [-0.15, 0.38],  [0.67,0.38],  [0.67, -0.38]]   #机器人形状 for top_akm_dl backAxleCenter
+
+  #麦轮系列
+
+  #vertices: [[-0.133, -0.125], [-0.133, 0.125],[0.133,0.125],[0.133, -0.125]] #多边形端点坐标 for mini_mec
+
+  # vertices: [[-0.195, -0.21],  [-0.195, 0.21], [0.195,0.21], [0.195, -0.21]]  #多边形端点坐标 for senior_mec_no
+
+  #vertices: [[-0.29, -0.27],   [-0.29, 0.27],  [0.29,0.27],  [0.29, -0.27]]   #多边形端点坐标 for senior_mec_dl
+
+  #vertices: [[-0.380, -0.330], [-0.380, 0.330],[0.380,0.208],[0.380, -0.330]] #多边形端点坐标 for top_mec_bs
+
+  #vertices: [[-0.280, -0.313], [-0.280, 0.313],[0.280,0.313],[0.280, -0.313]] #多边形端点坐标 for top_mec_dl
+
+  #全向轮系列
+
+  radius: 0.19 #for mini_diff  半径
+
+  #radius: 0.21 #for senior_omni
+
+  # radius: 0.31 #for top_omni
+
+  #差速系列
+
+  #vertices: [[-0.1350, -0.1110], [-0.1350, 0.1110], [0.1350, 0.1110], [0.1350, -0.1110]] #多边形端点坐标 for mini_4wd
+
+  # vertices: [[-0.1200, -0.0900], [-0.1200, 0.0900], [0.1200, 0.0900], [0.1200, -0.0900]] #多边形端点坐标 for mini_diff
+
+  #vertices: [[-0.1350, -0.1350], [-0.1350, 0.1350], [0.1350, 0.1350], [0.1350, -0.1350]] #多边形端点坐标 for mini_tank
+
+  #vertices: [[-0.1975, -0.1849], [-0.1975, 0.1849], [0.1975, 0.1849], [0.1975, -0.1849]] #多边形端点坐标 for top_diff
+
+  #vertices: [[-0.2970, -0.3150], [-0.2970, 0.3150], [0.2970, 0.3150], [0.2970, -0.3150]] #多边形端点坐标 for four_wheel_diff_bs
+
+  #vertices: [[-0.3350, -0.3280], [-0.3350, 0.3280], [0.3350, 0.3280], [0.3350, -0.3280]] #多边形端点坐标 for four_wheel_diff_dl
+
+  #vertices:  [[-0.2800, -0.1600], [-0.2800, 0.1600], [0.1200, 0.1600], [0.1200, -0.1600]] #多边形端点坐标 for brushless_senior_diff
+
+ xy_goal_tolerance: 0.03   #目标 xy 偏移容忍度  minimum 0.001 maximum 0.2
+
+ yaw_goal_tolerance: 0.03 #目标 角度 偏移容忍度 minimum 0.001 maximum 0.1
+
+ free_goal_vel: False  #允许机器人以最大速度驶向目的地
+
+ complete_global_plan: True
+
+ # Obstacles
+
+ min_obstacle_dist: 0.1 #和障碍物最小距离
+
+ include_costmap_obstacles: True  #是否将动态障碍物预测为速度模型，
+
+ costmap_obstacles_behind_robot_dist: 0.5  #限制机器人后方规划时考虑的局部成本地图障碍物
+
+ obstacle_poses_affected: 15   #障碍物姿态受影响0~30
+
+ costmap_converter_plugin: ""
+
+ costmap_converter_spin_thread: True
+
+ costmap_converter_rate: 5
+
+ include_dynamic_obstacles: True
+
+ dynamic_obstacle_inflation_dist: 0.1
+
+ # Optimization  
+
+ no_inner_iterations: 5  #被外循环调用后内循环执行优化次数
+
+ no_outer_iterations: 4 #执行的外循环的优化次数
+
+ optimization_activate: True  #激活优化
+
+ optimization_verbose: False #打印优化过程详情
+
+ penalty_epsilon: 0.05 #为速度等约束提供类似膨胀层的缓冲效果
+
+ obstacle_cost_exponent: 4
+
+ weight_max_vel_x: 2
+
+ weight_max_vel_theta: 1
+
+ weight_acc_lim_x: 1
+
+ weight_acc_lim_theta: 1
+
+ weight_kinematics_nh: 1000 #满足非完整运动学的最优权重
+
+ weight_kinematics_forward_drive: 200  #优化过程中，迫使机器人只选择前进方向，差速轮适用
+
+ weight_kinematics_turning_radius: 1 #优化过程中，车型机器人的最小转弯半径的权重
+
+ weight_optimaltime: 1.5  # must be > 0 最优时间权重
+
+ weight_shortest_path: 0
+
+ weight_obstacle: 100 #优化过程中，和障碍物最小距离的权重
+
+ weight_inflation: 0.2
+
+ weight_dynamic_obstacle: 10 # not in use yet  优化过程中，和动态障碍物最小距离的权重
+
+ weight_dynamic_obstacle_inflation: 0.2
+
+ weight_viapoint: 1
+
+ weight_adapt_factor: 2
+
+ # Homotopy Class Planner
+
+ enable_homotopy_class_planning: False
+
+ enable_multithreading: True #允许多线程并行处理
+
+ max_number_classes: 4 #允许的线程数
+
+ selection_cost_hysteresis: 1.0
+
+ selection_prefer_initial_plan: 0.95
+
+ selection_obst_cost_scale: 1.0
+
+ selection_alternative_time_cost: False
+
+ roadmap_graph_no_samples: 15
+
+ roadmap_graph_area_width: 5
+
+ roadmap_graph_area_length_scale: 1.0
+
+ h_signature_prescaler: 0.5
+
+ h_signature_threshold: 0.1
+
+ obstacle_heading_threshold: 0.45
+
+ switching_blocking_period: 0.0
+
+ viapoints_all_candidates: True
+
+ delete_detours_backwards: True
+
+ max_ratio_detours_duration_best_duration: 3.0
+
+ visualize_hc_graph: False
+
+ visualize_with_time_as_z_axis_scale: False
+
+ # Recovery
+
+ shrink_horizon_backup: True
+
+ shrink_horizon_min_duration: 10
+
+ oscillation_recovery: False  #尝试检测和解决振荡
+
+ oscillation_v_eps: 0.1
+
+ oscillation_omega_eps: 0.1
+
+ oscillation_recovery_min_duration: 10
+
+ oscillation_filter_duration: 10

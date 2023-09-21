@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/gjhhust/ROS/user/laser_wa/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/racecar/system/racecar/ackermann_cmd_mux/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/racecar/system/hokuyo_node/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/auto_navigation/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/ralidarHC/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/robot_bringup/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/racecar/system/serial/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/test_planner/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/racecar/system/vesc/vesc_ackermann/include/**",
+        "/home/gjhhust/ROS/user/laser_wa/src/racecar/system/vesc/vesc_driver/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

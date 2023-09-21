@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MBOT_LINUX_SERIAL_H	mbot_linux_serial.h	2;"	d
+ROBOT_LENGTH	mbot_linux_serial.cpp	/^const double ROBOT_LENGTH = 395.18;  \/\/mm$/;"	v
+ROBOT_RADIUS	mbot_linux_serial.cpp	/^const double ROBOT_RADIUS = 197.59;  \/\/两轮之间的半径长度mm$/;"	v
+angleNow	mbot_linux_serial.cpp	/^}leftVelNow,rightVelNow,angleNow;$/;"	v	typeref:union:receiveData
+d	mbot_linux_serial.cpp	/^	short d;$/;"	m	union:receiveData	file:	access:public
+d	mbot_linux_serial.cpp	/^	short d;$/;"	m	union:sendData	file:	access:public
+data	mbot_linux_serial.cpp	/^	unsigned char data[2];$/;"	m	union:receiveData	file:	access:public
+data	mbot_linux_serial.cpp	/^	unsigned char data[2];$/;"	m	union:sendData	file:	access:public
+ender	mbot_linux_serial.cpp	/^const unsigned char ender[2] = {0x0d, 0x0a};$/;"	v
+err	mbot_linux_serial.cpp	/^boost::system::error_code err;$/;"	v
+getCrc8	mbot_linux_serial.cpp	/^unsigned char getCrc8(unsigned char *ptr, unsigned short len)$/;"	f	signature:(unsigned char *ptr, unsigned short len)
+getCrc8	mbot_linux_serial.h	/^unsigned char getCrc8(unsigned char *ptr, unsigned short len);$/;"	p	signature:(unsigned char *ptr, unsigned short len)
+header	mbot_linux_serial.cpp	/^const unsigned char header[2] = {0x55, 0xaa};$/;"	v
+leftVelNow	mbot_linux_serial.cpp	/^}leftVelNow,rightVelNow,angleNow;$/;"	v	typeref:union:receiveData
+leftVelSet	mbot_linux_serial.cpp	/^}leftVelSet,rightVelSet;$/;"	v	typeref:union:sendData
+main	publish_node.cpp	/^int main(int agrc,char **argv)$/;"	f	signature:(int agrc,char **argv)
+readSpeed	mbot_linux_serial.cpp	/^bool readSpeed(double &vx,double &vth,double &th,unsigned char &ctrlFlag)$/;"	f	signature:(double &vx,double &vth,double &th,unsigned char &ctrlFlag)
+readSpeed	mbot_linux_serial.h	/^extern bool readSpeed(double &vx,double &vth,double &th,unsigned char &ctrlFlag);$/;"	p	signature:(double &vx,double &vth,double &th,unsigned char &ctrlFlag)
+receiveData	mbot_linux_serial.cpp	/^union receiveData$/;"	u	file:
+receiveData::d	mbot_linux_serial.cpp	/^	short d;$/;"	m	union:receiveData	file:	access:public
+receiveData::data	mbot_linux_serial.cpp	/^	unsigned char data[2];$/;"	m	union:receiveData	file:	access:public
+rightVelNow	mbot_linux_serial.cpp	/^}leftVelNow,rightVelNow,angleNow;$/;"	v	typeref:union:receiveData
+rightVelSet	mbot_linux_serial.cpp	/^}leftVelSet,rightVelSet;$/;"	v	typeref:union:sendData
+sendData	mbot_linux_serial.cpp	/^union sendData$/;"	u	file:
+sendData::d	mbot_linux_serial.cpp	/^	short d;$/;"	m	union:sendData	file:	access:public
+sendData::data	mbot_linux_serial.cpp	/^	unsigned char data[2];$/;"	m	union:sendData	file:	access:public
+serialInit	mbot_linux_serial.cpp	/^void serialInit()$/;"	f	signature:()
+serialInit	mbot_linux_serial.h	/^extern void serialInit();$/;"	p	signature:()
+sp	mbot_linux_serial.cpp	/^boost::asio::serial_port sp(iosev, "\/dev\/mbot");$/;"	p	file:	signature:(iosev, �)
+testRece1	publish_node.cpp	/^double testRece1=5555.0;$/;"	v
+testRece2	publish_node.cpp	/^double testRece2=2222.0;$/;"	v
+testRece3	publish_node.cpp	/^unsigned char testRece3=0x07;$/;"	v
+testSend1	publish_node.cpp	/^double testSend1=5555.0;$/;"	v
+testSend2	publish_node.cpp	/^double testSend2=2222.0;$/;"	v
+testSend3	publish_node.cpp	/^unsigned char testSend3=0x07;$/;"	v
+writeSpeed	mbot_linux_serial.cpp	/^void writeSpeed(double RobotV, double YawRate,unsigned char ctrlFlag)$/;"	f	signature:(double RobotV, double YawRate,unsigned char ctrlFlag)
+writeSpeed	mbot_linux_serial.h	/^extern void writeSpeed(double RobotV, double YawRate,unsigned char ctrlFlag);$/;"	p	signature:(double RobotV, double YawRate,unsigned char ctrlFlag)

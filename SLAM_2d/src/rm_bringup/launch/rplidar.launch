@@ -1,0 +1,16 @@
+<launch>
+<!-- 思岚A1 -->
+  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+  <param name="serial_port"         type="string" value="/dev/lidar"/>  
+  <param name="serial_baudrate"     type="int"    value="115200"/>
+  <param name="frame_id"            type="string" value="laser"/>
+  <param name="inverted"            type="bool"   value="false"/>
+  <param name="angle_compensate"    type="bool"   value="true"/>
+
+ </node>
+  <!-- <node name="rplidarNodeClient"          pkg="rplidar_ros"  type="rplidarNodeClient" output="screen">
+  </node> -->
+
+  <!--发布静态坐标变换，laser为雷达相对机器人中心的坐标变换-->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.05 0.0 0.18 0 0.0 0.0 base_footprint laser 100"/>
+</launch>

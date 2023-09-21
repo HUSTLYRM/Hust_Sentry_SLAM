@@ -1,0 +1,8 @@
+<launch>
+
+    <!-- 启动rebot -->
+    <node pkg="rm_usart" type="usart_node" name="usart_node" output="screen"/>
+
+    <!-- 加载全局自定义参数 -->
+    <rosparam file="$(find rm_bringup)/yaml/config.yaml" command="load"/>
+</launch>

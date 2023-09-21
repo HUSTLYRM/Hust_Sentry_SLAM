@@ -1,0 +1,5 @@
+<launch>
+
+  <node pkg="rm_usart" type="rviz_goal" name="rviz_goal" output="screen" />
+
+</launch>

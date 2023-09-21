@@ -1,0 +1,39 @@
+<launch>
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="map.yaml" />
+    <!-- 运行地图服务器，并且加载设置的地图-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find auto_navigation)/map/$(arg map)"/>
+    <!-- 启动AMCL节点 -->
+    <include file="$(find auto_navigation)/Sim_launch/amcl_sim.launch" />
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find auto_navigation)/Sim_launch/move_base_simTeb.launch" />
+
+
+    <!-- 运行rviz -->
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+    <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find auto_navigation)/config/rviz/amcl.rviz" />
+
+    <node pkg="tf" type="static_transform_publisher" name="odom_map_broadcaster"  args="0 0 0 0 0 0 /map /odom 100.0" />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="odom_to_base_footprint" args="0.0 0.0 0.0 0 0 0.0 /odom /base_footprint 10000"/> -->
+
+
+    <!-- Run fake localization compatible with AMCL output -->
+    <node pkg="fake_localization" type="fake_localization" name="fake_localization" clear_params="true" output="screen">
+    </node>
+
+    <!-- Start the navigation test -->  
+    <node pkg="auto_navigation" type="nav_auto.py" name="nav_auto" output="screen">  
+        <param name="rest_time" value="1" />  
+        <param name="fake_test" value="true" />  
+    </node>     
+
+    <!-- get init pose -->
+    <node pkg="auto_navigation" type="pose_init" name="pose_init" output="screen" />
+
+    <!-- get app pose data -->
+    <node pkg="auto_navigation" type="sub_goal" name="sub_goal" output="screen" >
+        <param name="/waitTime" value="5" />  
+    </node>
+</launch>

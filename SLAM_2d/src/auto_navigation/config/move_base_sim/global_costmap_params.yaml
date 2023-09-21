@@ -1,0 +1,16 @@
+global_costmap:
+   global_frame: map
+   robot_base_frame: base_footprint
+
+   #膨胀半径，扩展在碰撞区域以外的代价区域，使得机器人规划路径避开障碍物
+   inflation_radius: 0.4
+  #代价比例系数，越大则代价值越小
+   cost_scaling_factor: 5
+
+   update_frequency: 1.0
+   publish_frequency: 1.0
+   static_map: true
+   rolling_window: false
+   resolution: 0.01
+   transform_tolerance: 1.0
+   map_type: costmap

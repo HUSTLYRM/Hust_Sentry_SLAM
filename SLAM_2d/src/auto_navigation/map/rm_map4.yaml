@@ -1,0 +1,7 @@
+image: /home/nvidia/SLAM_ALL/SLAM_2d/src/auto_navigation/map/rm_map4.pgm
+resolution: 0.050000
+origin: [-34.228287, -19.140713, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

@@ -1,0 +1,26 @@
+<launch>
+    <!-- 加载全局自定义参数 -->
+    <rosparam file="$(find rm_bringup)/yaml/config.yaml" command="load"/>
+    <!-- 启动robot -->
+    <node pkg="rm_usart" type="robotStart" name="robotStart" output="screen" />
+    <!-- 运行2d激光雷达驱动 -->
+    <!-- <include file="$(find rplidar_ros)/launch/rplidar_s2.launch" /> -->
+
+    <!-- 点云转激光pointcloud_to_laserscan -->
+    <include file="$(find pointcloud_to_laserscan)/launch/point_to_scan.launch" />
+
+    <!-- 激光雷达滤波，box_filters -->
+    <include file="$(find laser_filters)/launch/anglarBounds.launch" />
+
+    <!-- tf变换 -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
+    args="0.1 0.0 0.4 3.14159 0.0 0.0 /base_footprint /laser 100" /> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_odom"
+    args="0.0 0.0 0.0 0 0.0 0.0 /map /odom 100" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_livox_frame"
+    args="0.0 0.0 0.0 0 0.0 0.0 /base_footprint /livox_frame 100" />
+
+
+</launch>

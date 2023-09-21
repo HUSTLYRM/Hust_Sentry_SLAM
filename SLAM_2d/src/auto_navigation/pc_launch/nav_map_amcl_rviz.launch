@@ -1,0 +1,22 @@
+<!-- /***********************nav_map_amcl_rviz**********************************
+*fun: 读取建图好的地图，开启amcl定位+rviz展示debug
+*author: 郭嘉豪
+*Time: 2023-3
+*version: 1.0
+*********************************************************/ -->
+<launch>
+    <!-- load my_car model
+    <include file="$(find auto_navigation)/pc_launch/display_my_car.launch" /> -->
+
+    <!-- load map used by my_server-->
+    <arg name="map" default="map.yaml" />
+
+    <!-- run map_server-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find auto_navigation)/map/$(arg map)"/>
+
+    <!-- amcl -->
+    <include file="$(find auto_navigation)/pc_launch/amcl.launch" />
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find auto_navigation)/config/rviz/amcl.rviz" />
+
+</launch>

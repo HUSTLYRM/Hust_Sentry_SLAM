@@ -1,0 +1,44 @@
+# Trajectory
+## Trajectory-related parameters
+TebLocalPlannerROS:
+
+  # Trajectory and Robot
+  teb_autosize: True # 自动调整轨迹点之间的时间间隔
+  dt_ref: 0.3 # 轨迹点之间的参考时间间隔（仅在teb_autosize为false时使用）
+  dt_hysteresis: 0.1 # 时间间隔的滞后系数（仅在teb_autosize为false时使用）
+  global_plan_overwrite_orientation: True # 是否覆盖全局路径点的方向
+  allow_init_with_backwards_motion: False # 是否允许后退运动初始化轨迹
+  max_global_plan_lookahead_dist: 3.0 # 最大全局路径预览距离
+  force_reinit_new_goal_dist: 1.0 # 如果新目标与旧目标之间的距离超过此值，则强制重新初始化轨迹
+  feasibility_check_no_poses: 5 # 检查轨迹可行性时使用的轨迹点数量
+
+## Robot-related parameters
+  type_of_robot: differential
+  wheelbase: 0.6 # 车轮间距，等于小车直径
+  max_vel_x: 0.4 # 最大x方向速度
+  max_vel_x_backwards: 0.2 # 最大x方向后退速度
+  max_vel_theta: 0.3 # 最大旋转速度
+  acc_lim_x: 0.5 # x方向加速度限制
+  acc_lim_theta: 0.5 # 角加速度限制
+
+## GoalTolerance-related parameters
+  xy_goal_tolerance: 0.2 # xy方向目标公差
+  yaw_goal_tolerance: 0.1 # 偏航角目标公差
+
+  # Obstacles
+  min_obstacle_dist: 0.1 # 障碍物与轨迹之间的最小距离
+  include_costmap_obstacles: True # 是否包括代价地图中的障碍物
+  costmap_obstacles_behind_robot_dist: 1.5 # 机器人后方考虑障碍物的距离
+  obstacle_poses_affected: 30 # 受障碍物影响的轨迹点数量
+  # Costs
+  weight_obstacle: 50 # 障碍物代价的权重
+  weight_inflation: 0.1 # 障碍物膨胀代价的权重
+
+
+  shrink_horizon_backup: True # 是否启用收缩视野备份
+  shrink_horizon_min_duration: 10 # 收缩视野的最小持续时间
+  oscillation_recovery: True # 是否启用振荡恢复
+  oscillation_v_eps: 0.1 # 振荡速度阈值
+  oscillation_omega_eps: 0.1 # 振荡角速度阈值
+  oscillation_recovery_min_duration: 10 # 振荡恢复的最小持续时间
+  oscillation_filter_duration: 10 # 振荡滤波器持续时间

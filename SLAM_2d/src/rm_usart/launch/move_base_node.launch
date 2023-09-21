@@ -1,0 +1,5 @@
+<launch>
+
+  <node pkg="rm_usart" type="move_base_node" name="move_base_node" output="screen" />
+
+</launch>

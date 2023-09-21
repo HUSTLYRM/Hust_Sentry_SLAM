@@ -1,0 +1,4 @@
+<launch>
+    <!-- 启动rebot -->
+    <include file="$(find rm_usart)/launch/robotStart.launch" />
+</launch>

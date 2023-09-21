@@ -1,0 +1,9 @@
+debug_flag: False
+dynamicConfig: true
+Gimbal_Control_topic: "/Gimbal_Control"
+# Chassis_Control_topic: "/smart/cmd_vel"
+Chassis_Control_topic: "/cmd_vel"
+imu: { topic: "/imu_raw" }
+usart_port: "/dev/lidar"
+
+

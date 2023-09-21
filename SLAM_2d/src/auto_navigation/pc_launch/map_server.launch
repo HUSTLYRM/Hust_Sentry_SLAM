@@ -1,0 +1,4 @@
+<launch>
+    <arg name="map" default = "map1.yaml" />
+    <node pkg="map_server"  type="map_server"  name="map_server" args="$(find auto_navigation)/map/$(arg map)"/>
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+    <!-- load my_car model
+    <include file="$(find auto_navigation)/pc_launch/display_my_car.launch" /> -->
+
+    <!-- gmapping -->
+    <include file="$(find auto_navigation)/pc_launch/gmapping.launch" />
+
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find auto_navigation)/config/rviz/display_urdf.rviz" />
+
+
+</launch>

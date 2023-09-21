@@ -1,0 +1,10 @@
+<launch>
+    <!-- <param name="robot_description" command="$(find xacro)/xacro $(find auto_navigation)/urdf/xacro/my_car.urdf.xacro" /> -->
+
+    
+    <!-- <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" /> -->
+
+
+
+</launch>

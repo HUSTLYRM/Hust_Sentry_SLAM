@@ -1,0 +1,59 @@
+scan_filter_chain:
+  # - name: angle
+  #   type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  #   params:
+  #     lower_angle: -1.57
+  #     upper_angle: 1.57
+
+  # - name: angle1
+  #   type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  #   params:
+  #     lower_angle: -3.14159
+  #     upper_angle: -1.91986
+  # - name: angle2
+  #   type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  #   params:
+  #     lower_angle: -1.221727823
+  #     upper_angle: -0.52359612201
+  # - name: angle3
+  #   type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  #   params:
+  #     lower_angle: 0.61086789
+  #     upper_angle: 1.1519199599
+  # - name: angle4
+  #   type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  #   params:
+  #     lower_angle: 1.91986483
+  #     upper_angle: 3.14
+
+
+  # - name: box_filter
+  #   type: laser_filters/LaserScanRangeFilter
+  #   params:
+  #     use_message_range_limits: false   # if not specified defaults to false
+  #     lower_threshold: 0.5              # if not specified defaults to 0.0
+  #     upper_threshold: 100.0              # if not specified defaults to 100000.0
+  #     lower_replacement_value: -.inf    # if not specified defaults to NaN
+  #     upper_replacement_value: .inf     # if not specified defaults to NaN
+
+
+  
+  # - name: shadows
+  #   type: laser_filters/ScanShadowsFilter
+  #   params:
+  #     min_angle: 10
+  #     max_angle: 170
+  #     neighbors: 20
+  #     window: 1
+
+scan_filter_chain:
+- name: box_filter
+  type: laser_filters/LaserScanBoxFilter
+  params:
+    box_frame: livox_frame
+    min_x: -0.3
+    max_x: 0.15
+    min_y: -0.3
+    max_y: 0.3
+    min_z: -1
+    max_z: 0.2

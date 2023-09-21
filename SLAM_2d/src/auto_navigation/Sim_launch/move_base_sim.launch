@@ -1,0 +1,12 @@
+<launch>
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find auto_navigation)/config/move_base_sim/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find auto_navigation)/config/move_base_sim/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find auto_navigation)/config/move_base_sim/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find auto_navigation)/config/move_base_sim/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find auto_navigation)/config/move_base_sim/base_local_planner_params.yaml" command="load" />
+    <param name="controller_frequency" value="5.0"/>
+    <param name="controller_patiente" value="15.0"/>
+  </node>
+
+</launch>

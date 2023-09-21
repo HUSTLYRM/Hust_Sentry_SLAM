@@ -1,0 +1,21 @@
+<!-- /***********************nav_exploring_slam**********************************
+*fun: 建图，在rviz里发布目标点前进，并等待绘制地图完毕，启动map_saver.launch即可保存地图（指定名称）
+*author: 郭嘉豪
+*Time: 2023-3
+*version: 1.0
+*********************************************************/ -->
+<launch>
+
+     <!-- 启动rebot -->
+     <include file="$(find rm_usart)/launch/robotStart.launch" />
+
+    <!-- gmapping -->
+    <!-- <include file="$(find auto_navigation)/pc_launch/gmapping.launch"/> -->
+    <include file="$(find auto_navigation)/pc_launch/gmapping.launch"/>
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find auto_navigation)/pc_launch/move_base.launch" />
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find auto_navigation)/config/rviz/move_base.rviz" />
+
+</launch>

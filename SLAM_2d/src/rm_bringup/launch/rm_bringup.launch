@@ -1,0 +1,29 @@
+<!-- /***********************rm_bringup**********************************
+*fun: 加载参数并启动自瞄与自动导航
+*author: 郭嘉豪
+*Time: 2022-9
+*version: 1.0
+*********************************************************/ -->
+
+<launch>
+
+    <!-- 启动硬件发布，也可注释掉在硬件包内单独开启 -->
+    <!-- <node pkg="rm_usart" type="usart_node" name="usart_node"/> -->
+
+    <!-- 启动自瞄 -->
+    <!-- <node pkg="auto_aim" type="auto_aim" name="auto_aim"/> -->
+
+    <!-- 启动自动导航 -->
+    <!-- <node pkg="auto_navigation" type="robot_start" name="robot_start" output="screen" /> -->
+
+    <!-- 运行激光雷达驱动-->
+    <!-- <include file="$(find rm_bringup)/launch/rplidar_s2.launch" /> -->
+
+    <!-- 开启相机-->
+    <!-- <node pkg="rm_camera" type="camera_node" name="camera_node" output="screen" /> -->
+
+    
+    <!-- 加载全局自定义参数 -->
+    <rosparam file="$(find rm_bringup)/yaml/config.yaml" command="load"/>
+
+</launch>

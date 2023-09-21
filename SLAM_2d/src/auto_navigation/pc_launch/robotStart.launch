@@ -1,0 +1,14 @@
+<launch>
+
+    <!-- 启动rebot -->
+    <node pkg="rm_usart" type="robotStart" name="robotStart" output="screen" />
+    <!-- 运行激光雷达驱动 -->
+    <include file="$(find rplidar_ros)/launch/rplidar_s2.launch" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
+    args="0.0 0.0 0.2 0.0 0.0 0.0 /base_footprint /laser 20" />
+
+    <!-- 加载全局自定义参数 -->
+    <rosparam file="$(find rm_bringup)/yaml/config.yaml" command="load"/>
+
+</launch>

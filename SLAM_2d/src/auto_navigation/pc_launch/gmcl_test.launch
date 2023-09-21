@@ -1,0 +1,11 @@
+<launch>
+    <!-- 启动rebot -->
+     <include file="$(find rm_usart)/launch/robotStart.launch" />
+
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="map1.yaml" />
+    <!-- 运行地图服务器，并且加载设置的地图-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find auto_navigation)/map/$(arg map)"/>
+    <!-- 启动AMCwL节点 -->
+    <include file="$(find gmcl)/examples/gmcl_diff.launch" />
+</launch>

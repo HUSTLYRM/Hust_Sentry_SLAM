@@ -1,0 +1,6 @@
+<launch>
+    <!-- config -->
+    <arg name="map" default="nav.yaml" />
+    <!-- load-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find auto_navigation)/map/$(arg map)"/>
+</launch>

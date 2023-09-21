@@ -1,0 +1,6 @@
+image: /home/nvidia/A_SLAM_2d/src/auto_navigation/map/mymap.pgm
+resolution: 0.05
+origin: [-11.5528, -11.0402, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

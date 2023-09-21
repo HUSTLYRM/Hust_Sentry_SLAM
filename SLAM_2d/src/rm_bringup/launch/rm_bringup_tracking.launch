@@ -1,0 +1,40 @@
+<!-- /***********************rm_bringup**********************************
+*fun: 加载参数并启动自瞄与自动导航
+*author: 郭嘉豪
+*Time: 2022-9
+*version: 1.0
+*********************************************************/ -->
+
+<launch>
+
+    <!-- 启动硬件发布，也可注释掉在硬件包内单独开启 -->
+    <!-- <node pkg="rm_usart" type="usart_node" name="usart_node"/> -->
+
+    <!-- 启动自瞄 -->
+    <!-- <node pkg="auto_aim" type="auto_aim" name="auto_aim"/> -->
+
+    <!-- 启动自动导航 -->
+    <!-- <include file="$(find auto_navigation)/launch/robot_start.launch" /> -->
+
+    <!-- 运行激光雷达驱动-->
+    <!-- <include file="$(find rm_bringup)/launch/rplidar_s2.launch" /> -->
+
+    <!-- 开启相机-->
+    <!-- <node pkg="rm_camera" type="camera_node" name="camera_node" output="screen" /> -->
+
+    <!-- 启动rebot -->
+    <!-- <node pkg="rm_usart" type="usart_node" name="usart_node" output="screen"/> -->
+    <!-- Start the navigation test -->  
+    <!-- <node pkg="people_tracking" type="following.py" name="following" output="screen"/>   -->
+
+    <!-- <node pkg="rm_camera" type="camera_node" name="camera_node" output="screen" /> -->
+    <!-- 导航 -->
+    <!-- <include file="$(find auto_navigation)/pc_launch/nav_exploring_slam.launch" /> -->
+
+    <!-- 加载全局自定义参数 -->
+    <!-- <rosparam file="$(find rm_bringup)/yaml/config.yaml" command="load"/> -->
+
+    <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz"/>
+
+</launch>

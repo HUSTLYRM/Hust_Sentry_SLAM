@@ -1,0 +1,10 @@
+std_msgs/Header header
+float32 x_now
+float32 y_now
+float32 w_now
+float32 vx
+float32 vy
+float32 vw
+float32 goal_x
+float32 goal_y
+float32 goal_w

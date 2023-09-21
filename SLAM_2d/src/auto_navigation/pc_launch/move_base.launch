@@ -1,0 +1,13 @@
+<launch>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+
+        <rosparam file="$(find auto_navigation)/config/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find auto_navigation)/config/move_base/costmap_common_params.yaml" command="load" ns="local_costmap" /> -->
+        <!-- <param name="base_global_planner" value="test_planner/testPlanner"/> -->
+        <rosparam file="$(find auto_navigation)/config/move_base/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find auto_navigation)/config/move_base/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find auto_navigation)/config/move_base/base_local_planner_params.yaml" command="load" />
+    </node>
+
+</launch>
