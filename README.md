@@ -58,6 +58,11 @@
 
   采用两路串口通信，分别为自瞄和导航使用
 
+##导航效果展示
+
+【【RM】华科哨兵DLO定位+move_base导航测试上坡-哔哩哔哩】 https://b23.tv/Br8zgIc
+
+
 **硬件框图总览**
 
 ![overview](overview.png)
